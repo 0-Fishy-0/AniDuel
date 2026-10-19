@@ -5,8 +5,7 @@
 **A browser-based card dueling game, built from scratch in vanilla JavaScript.**
 No frameworks. No libraries. Just the DOM and a lot of game logic.
 
-<!-- [**▶ Play it live**](https://0-fishy-0.github.io/AniDuel/) · -->
-[Report a bug](https://github.com/0-Fishy-0/AniDuel/issues)
+[**▶ Play it live**](https://0-fishy-0.github.io/AniDuel/) · [Report a bug](https://github.com/0-Fishy-0/AniDuel/issues)
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-5C5C5C?logo=javascript&logoColor=yellow)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
