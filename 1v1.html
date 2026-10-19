@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Styles/1v1.css">
+     <!--  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <!--  -->
+    <title>AniDuel</title>
+</head>
+<body>
+    <div class="container">
+        <div class="vert">
+            <div class="avatar-wrapper turn-start">
+                <div class="avatar" id="img-p1">P1</div>
+            </div>
+            <div class="inp-wrapper">
+                <span class="inp-label">Player 1</span>
+                <input type="text" class="name" id="name-p1" maxlength="16" placeholder="Enter Name..." tabindex="1">
+            </div>
+        </div>
+        <div class="mid">
+            <div class="mid-bot">
+                <span class="vs">VS</span>
+                <button class="start" tabindex="3">START GAME</button>
+            </div>
+        </div>
+        <div class="vert">
+            <div class="avatar-wrapper">
+                <div class="avatar" id="img-p1">P2</div>
+            </div>
+            <div class="inp-wrapper">
+                <span class="inp-label">Player 2</span>
+                <input type="text" class="name" id="name-p2" maxlength="16" placeholder="Enter Name..." tabindex="2">
+            </div>
+        </div>
+    </div>
+    <div class="page-wipe"></div>
+    <div class="page-leave-anim hidden"></div>
+    <script src="./Scripts/1v1.js" type="module"></script>
+</body>
+</html>

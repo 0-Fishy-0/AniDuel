@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AniDuel</title>
+    <link rel="stylesheet" href="./Styles/game.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row row-top">
+            <div class="row player-info turn-active-top" id="player-info-p1">
+                <div class="avatar-wrapper">
+                    <div class="avatar" id="img-p1">P1</div>
+                </div>
+                <div class="col player-stats" id="stats-p1">
+                    <span class="player-name" id="player-name-p1">Placeholder 1</span>
+                    <div class="row hp">
+                        <span class="hp-label">HP</span>
+                        <div class="hp-bar" id="hp-bar-p1"></div>
+                        <span class="hp-value" id="hp-value-p1"></span>
+                    </div>
+                    <div class="row ki">
+                        <span class="ki-label">Ki</span>
+                        <div class="row ki-pips" id="ki-pips-p1">
+                            <div class="pip filled"></div>
+                            <div class="pip filled"></div>
+                            <div class="pip filled"></div>
+                            <div class="pip"></div>
+                            <div class="pip"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col effect-col">
+                    <span class="effect-label">Effects</span>
+                    <div class="player-effects" id="effect-p1">
+                        <div class="effect-fire"></div>
+                        <div class="effect-water"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col round-info">
+                <span class="round-label">Round</span>
+                <div class="round-number-wrapper">
+                    <span class="round-number" id="round-number-current">1</span>
+                    <span class="round-number" id="round-number-next"></span>
+                </div>
+            </div>
+            <div class="row row-reverse player-info" id="player-info-p2">
+                <div class="avatar-wrapper">
+                    <div class="avatar" id="img-p2">P2</div>
+                </div>
+                <div class="col player-stats" id="stats-p2">
+                    <span class="player-name" id="player-name-p2">Placeholder 2</span>
+                    <div class="row row-reverse hp">
+                        <span class="hp-label">HP</span>
+                        <div class="hp-bar" id="hp-bar-p2"></div>
+                        <span class="hp-value" id="hp-value-p2">100</span>
+                    </div>
+                    <div class="row row-reverse ki">
+                        <span class="ki-label">Ki</span>
+                        <div class="row ki-pips" id="ki-pips-p2">
+                            <div class="pip filled"></div>
+                            <div class="pip filled"></div>
+                            <div class="pip filled"></div>
+                            <div class="pip"></div>
+                            <div class="pip"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col effect-col">
+                    <span class="effect-label">Effects</span>
+                    <div class="player-effects" id="effect-p2">
+                        <div class="effect"></div>
+                        <div class="effect"></div>
+                        <div class="effect"></div>
+                        <div class="effect"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-mid">
+            <div class="played-area turn-active-mid" id="played-p1">
+                <div class="card-played"></div>
+                <div class="card-played"></div>
+            </div>
+            <div class="col options">
+                <button class="btn-option" id="btn-spin">
+                    <span class="option-label">Spin</span>
+                    <span class="option-desc">Draw a card</span>
+                </button>
+                <button class="btn-option" id="btn-punch">
+                    <span class="option-label">Punch</span>
+                    <span class="option-desc">X damage</span>
+                </button>
+                <button class="btn-option" id="btn-boosted">
+                    <span class="option-label">Boost</span>
+                    <span class="option-desc">2ki</span>
+                </button>
+            </div>
+            <div class="played-area" id="played-p2"></div>
+        </div>
+        <div class="row row-bottom">
+            <div class="col hand  turn-active-bottom" id="hand-p1">
+                <span class="hand-label">P1 Hand</span>
+                <div class="cards" id="cards-p1">
+                    <div class="card"></div>
+                    <div class="card"></div>
+                </div>
+            </div>
+            <div class="col log">
+                <!-- <span class="log-label">LOG</span>
+                <div class="log-entries">
+                    <span class="entry">P1 dealt x damage</span>
+                    <span class="entry">P2 played a card</span>
+                </div> -->
+            </div>
+            <div class="col hand" id="hand-p2">
+                <span class="hand-label">P2 Hand</span>
+                <div class="cards" id="cards-p2">
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tooltip-effect hidden">
+        <div class="tooltip-effect-info">
+            <span class="tooltip-effect-name">
+                Gojo's Infinity
+            </span>
+            <span class="tooltip-effect-charges">
+                3
+            </span>
+        </div>
+        <div class="tooltip-sep"></div>
+        <span class="tooltip-effect-desc">
+            Negates 1 instance of incoming damage per charge. 
+        </span>
+    </div>
+        <div class="tooltip-effect-overflow hidden">
+        <span class="tooltip-effect-overflow-label">ACTIVE EFFECTS</span>
+        <div class="tooltip-effect-overflow-list">
+            <div class="tooltip-effect-overflow-list-item">
+                <span class="effect-overflow-icon">🛡</span>
+                <div class="effect-overflow-name">
+                    <span>Death Prevent</span>
+                </div>
+                <span class="effect-overflow-charges">1</span>
+            </div>
+        </div>
+    </div>
+        <div class="game-over-screen hidden">
+        <div class="game-over-container">
+            <span class="game-over-label">Game Over</span>
+            <span class="game-over-win-label">Player 1 Wins!</span>
+            <div class="game-over-hp-info">
+                <div class="game-over-hp-wrap" id="game-over-p1-hp-wrap">
+                    <span class="game-over-name" id="game-over-p1-name">Player 1</span>
+                    <span class="game-over-hp" id="game-over-p1-hp">X HP</span>
+                </div>
+                <div class="game-over-hp-vert-sep"></div>
+                <div class="game-over-hp-wrap" id="game-over-p2-hp-wrap">
+                    <span class="game-over-name" id="game-over-p2-name">Player 2</span>
+                    <span class="game-over-hp" id="game-over-p2-hp">Y HP</span>
+                </div>
+            </div>
+            <div class="game-over-hori-sep"></div>
+            <div class="game-over-options">
+                <button class="btn-game-over-menu">Main Menu</button>
+                <button class="btn-game-over-again">Play Again</button>
+            </div>
+        </div>
+    </div>
+        <div class="card-tooltip-container hidden">
+        <div class="card-tooltip-top">
+            <span class="card-tooltip-name">CardName</span>
+            <div class="card-tooltip-top-info">
+                <div class="card-tooltip-dmg hidden">X</div>
+                <div class="card-tooltip-heal hidden">Y</div>
+                <div class="card-tooltip-misc hidden">MISC</div>
+            </div>
+        </div>
+        <div class="tooltip-sep"></div>
+        <span class="card-tooltip-desc">Card Description</span>
+        <div class="tooltip-sep"></div>
+        <span class="card-tooltip-rarity-3 hidden">★★★</span>
+        <span class="card-tooltip-rarity-4 hidden">★★★★</span>
+        <span class="card-tooltip-rarity-5 hidden">★★★★★</span>
+    </div>
+    <div class="page-wipe"></div>
+    <script src="./Scripts/main.js" type="module"></script>
+</body>
+</html>
